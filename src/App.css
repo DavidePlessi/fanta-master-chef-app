@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+body {
+  background-image: url('./img/bg_mc.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
