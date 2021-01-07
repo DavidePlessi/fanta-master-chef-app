@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {doLogin} from "../../actions/auth";
 import {connect} from 'react-redux';
 import {
-  Container,
   Grid,
   TextField,
   Button,
@@ -11,6 +10,7 @@ import {
 import {Redirect} from "react-router-dom";
 
 import _ from 'lodash'
+import MainContainer from "../container/MainContainer";
 
 const Login = ({doLogin, user}) => {
   const [email, setEmail] = useState("");
@@ -35,14 +35,7 @@ const Login = ({doLogin, user}) => {
   }
 
   return (
-    <Container style={{
-      marginTop: 100,
-      maxWidth: 600,
-      padding: 20,
-      border: "1px solid #CD243B",
-      boxShadow: "4px 4px 5px 0px rgba(0,0,0,0.75)",
-      backgroundColor: "rgba(255, 255, 255, .8)"
-    }}>
+    <MainContainer maxWidth={600}>
       <Typography
         variant="h4"
         component="h4"
@@ -51,41 +44,43 @@ const Login = ({doLogin, user}) => {
       >
         Log in
       </Typography>
-      <Grid container={true} spacing={2}>
-        <Grid item={true} xs={12}>
-          <TextField
-            fullWidth
-            required={true}
-            inputProps={{
-              autoComplete: "nofill"
-            }}
-            onChange={e => handleEmailChange(e.target.value)}
-            label={'Email'}
-            value={email}
-          />
+      <form onSubmit={(e) => onSubmit(e)}>
+        <Grid container={true} spacing={2}>
+          <Grid item={true} xs={12}>
+            <TextField
+              fullWidth
+              required={true}
+              inputProps={{
+                autoComplete: "nofill"
+              }}
+              onChange={e => handleEmailChange(e.target.value)}
+              label={'Email'}
+              value={email}
+            />
 
+          </Grid>
+          <Grid item={true} xs={12}>
+            <TextField
+              fullWidth
+              required={true}
+              inputProps={{
+                autoComplete: "nofill"
+              }}
+              onChange={e => handlePasswordChange(e.target.value)}
+              label={'Password'}
+              value={password}
+              type="password"
+            />
+          </Grid>
+          <Grid item={true} xs={12} alignContent={"center"} alignItems={"center"}>
+            <Button type={"submit"} variant="contained" color="primary"
+                    style={{marginLeft: "calc(50% - 39px)", width: 78}}>
+              {'Login'}
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item={true} xs={12}>
-          <TextField
-            fullWidth
-            required={true}
-            inputProps={{
-              autoComplete: "nofill"
-            }}
-            onChange={e => handlePasswordChange(e.target.value)}
-            label={'Password'}
-            value={password}
-            type="password"
-          />
-        </Grid>
-        <Grid item={true} xs={12} alignContent={"center"} alignItems={"center"}>
-          <Button onClick={(e) => onSubmit(e)} variant="outlined" color="primary"
-                  style={{marginLeft: "calc(50% - 39px)", width: 78}}>
-            {'Login'}
-          </Button>
-        </Grid>
-      </Grid>
-    </Container>
+      </form>
+    </MainContainer>
   )
 }
 

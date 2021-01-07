@@ -12,6 +12,8 @@ import {store, history} from "./store";
 import Login from "./components/auth/Login";
 import {loadUser} from "./actions/auth";
 import theme from "./theme";
+import EpisodeList from "./components/episode/EpisodeList";
+import ParticipantList from "./components/participant/ParticipantList";
 
 function App() {
 
@@ -27,10 +29,10 @@ function App() {
               <Switch>
                 <Route exact path='/login' component={Login}/>
                 <PrivateRoute exact path='/' component={() => <h1>HELLOWW!!!</h1>}/>
-                <PrivateRoute exact path='/episodes'/>
+                <PrivateRoute exact path='/episodes' component={EpisodeList}/>
                 <PrivateRoute exact path='/my-brigade'/>
                 <PrivateRoute exact path='/deploy-brigade'/>
-                <PrivateRoute exact path='/participants'/>
+                <PrivateRoute exact path='/participants' component={ParticipantList}/>
               </Switch>
             </ConnectedRouter>
           </Suspense>

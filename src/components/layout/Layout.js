@@ -31,9 +31,7 @@ const Layout = ({children, maxWidth}) => {
         marginTop: 80,
         maxWidth: maxWidth,
         padding: 20,
-        border: "1px solid #CD243B",
-        boxShadow: "4px 4px 5px 0px rgba(0,0,0,0.75)",
-        backgroundColor: "rgba(255, 255, 255, .8)"
+        backgroundColor: "transparent"
       }}>
         {children}
       </Container>
