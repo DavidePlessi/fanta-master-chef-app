@@ -1,7 +1,7 @@
 import React, {Suspense, useEffect} from "react";
 import './App.css';
 import {ConnectedRouter} from "connected-react-router";
-import {Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import {I18nextProvider} from "react-i18next";
 import {Provider} from "react-redux";
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -30,7 +30,9 @@ function App() {
             <ConnectedRouter history={history}>
               <Switch>
                 <Route exact path='/login' component={Login}/>
-                <PrivateRoute exact path='/' component={() => <h1>HELLOWW!!!</h1>}/>
+                <Route exact path={'/'}>
+                  <Redirect to={'/deploy-brigade'}/>
+                </Route>
                 <PrivateRoute exact path='/episodes' component={EpisodeList}/>
                 <PrivateRoute exact path='/my-brigade' component={MyBrigade}/>
                 <PrivateRoute exact path='/deploy-brigade' component={DeploymentDashboard}/>

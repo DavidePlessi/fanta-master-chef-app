@@ -7,11 +7,14 @@ import getParticipantImage from "../../utils/getParticipantImage";
 const useStyle = makeStyles(theme => ({
   participantListItemAvatar: {
     width: 50,
-    height: 50,
-    border: "1px solid " + theme.palette.primary.main
+    height: 50
   },
   participantActiveListItemAvatar: {
-    backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.main,
+    border: "1px solid " + theme.palette.primary.main
+  },
+  participantEliminatedItemAvatar: {
+    border: "1px solid black"
   },
   participantEliminatedImage: {
     filter: "grayscale(100%)"
@@ -26,7 +29,8 @@ export default function ParticipantAvatar({participant, className}) {
       aria-label={'recipe'}
       className={clsx({
         [classes.participantListItemAvatar]: true,
-        [classes.participantActiveListItemAvatar]: !participant.eliminated
+        [classes.participantActiveListItemAvatar]: !participant.eliminated,
+        [classes.participantEliminatedItemAvatar]: participant.eliminated
       }, className)}>
       <img
         className={clsx({

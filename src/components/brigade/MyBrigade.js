@@ -6,6 +6,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {getMyBrigade} from "../../actions/fantaBrigade";
 import {Divider, Grid, List, ListItem, ListItemText, Typography} from "@material-ui/core";
 import ParticipantAvatar from "../participant/ParticipantAvatar";
+import clsx from "clsx";
 
 const useStyle = makeStyles(theme => ({
   avatar: {
@@ -27,6 +28,9 @@ const useStyle = makeStyles(theme => ({
   },
   mainContainer: {
     overflow: 'auto'
+  },
+  participantEliminatedName: {
+    textDecoration: "line-through"
   }
 
 }));
@@ -48,7 +52,16 @@ function MyBrigade({myBrigade, getMyBrigade}) {
             {!!myBrigade.participants && myBrigade.participants.map(participant => (
               <div className={classes.participantContainer}>
                 <ParticipantAvatar participant={participant} className={classes.avatar}/>
-                <Typography variant={'p'} component={'p'} align={'center'}>{participant.name + " " + participant.lastName}</Typography>
+                <Typography
+                  variant={'p'}
+                  component={'p'}
+                  align={'center'}
+                  className={clsx({
+                    [classes.participantEliminatedName]: participant.eliminated
+                  })}
+                >
+                  {participant.name + " " + participant.lastName}
+                </Typography>
               </div>
             ))}
           </div>

@@ -43,6 +43,9 @@ const useStyle = makeStyles(theme => ({
     maxHeight: 'calc(100vh - 240px)',
     overflow: 'auto'
   },
+  participantEliminatedName: {
+    textDecoration: "line-through"
+  }
 }));
 
 function getNextEpisodes(episodes) {
@@ -180,7 +183,11 @@ function DeploymentDashboard(
               <Typography
                 variant={'p'}
                 component={'p'}
-                align={'center'}>
+                align={'center'}
+                className={clsx({
+                  [classes.participantEliminatedName]: participant.eliminated
+                })}
+              >
                 {participant.name + " " + participant.lastName}
               </Typography>
             </div>
