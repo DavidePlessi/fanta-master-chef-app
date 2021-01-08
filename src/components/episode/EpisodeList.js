@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import MainContainer from "../container/MainContainer";
 import { makeStyles } from "@material-ui/core/styles";
-import {Avatar, Divider, List, ListItem, ListItemIcon, ListItemText, Typography} from "@material-ui/core";
+import {Avatar, Divider, Grid, List, ListItem, ListItemIcon, ListItemText, Typography} from "@material-ui/core";
 import {getEpisodes} from "../../actions/episode";
 import clsx from "clsx";
 import moment from "moment";
@@ -46,9 +46,8 @@ function EpisodeList({episodes, getEpisodes}) {
   return (
     <>
       <MainContainer className={classes.episodeListContainer}>
-        <Typography variant={"h3"} component={"h3"} align={"center"}>
-          Episodi
-        </Typography>
+        <Typography variant={'h5'} component={'h5'} style={{marginBottom: 10}}>Episodi:</Typography>
+        <Divider style={{marginBottom: 10}}/>
         <List className={classes.episodeList}>
           {episodes.map(episode => {
             const episodeDate = (new Date(episode.date));

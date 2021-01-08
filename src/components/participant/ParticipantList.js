@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import MainContainer from "../container/MainContainer";
 import { makeStyles } from "@material-ui/core/styles";
-import {Avatar, List, ListItem, ListItemIcon, ListItemText, Typography} from "@material-ui/core";
+import {Avatar, Divider, List, ListItem, ListItemIcon, ListItemText, Typography} from "@material-ui/core";
 import {getParticipants} from "../../actions/participant";
 import clsx from "clsx";
 import getParticipantImage from "../../utils/getParticipantImage";
+import ParticipantAvatar from "./ParticipantAvatar";
 
 const useStyle = makeStyles(theme => ({
   participantListContainer: {
@@ -22,7 +23,8 @@ const useStyle = makeStyles(theme => ({
   },
   participantListItemAvatar: {
     width: 50,
-    height: 50
+    height: 50,
+    border: "1px solid " + theme.palette.primary.main
   },
   participantActiveListItemAvatar:{
     backgroundColor: theme.palette.primary.main
@@ -31,9 +33,6 @@ const useStyle = makeStyles(theme => ({
     color: theme.palette.primary.main + " !important",
     fontWeight: 800,
     fontSize: "1rem"
-  },
-  participantEliminatedImage: {
-    filter: "grayscale(100%)"
   }
 }));
 
@@ -47,30 +46,13 @@ function ParticipantList({participants, getParticipants}) {
   return (
     <>
       <MainContainer className={classes.participantListContainer}>
-        <Typography variant={"h3"} component={"h3"} align={"center"}>
-          Partecipanti
-        </Typography>
+        <Typography variant={'h5'} component={'h5'} style={{marginBottom: 10}}>Concorrenti:</Typography>
+        <Divider style={{marginBottom: 10}}/>
         <List className={classes.participantList}>
           {participants.map(participant => {
-            const img = getParticipantImage(participant.imgName);
             return (<ListItem>
               <ListItemIcon>
-                <Avatar
-                  aria-label={'recipe'}
-                  className={clsx({
-                    [classes.participantListItemAvatar]: true,
-                    [classes.participantActiveListItemAvatar]: !participant.eliminated
-                  })}>
-                  <img
-                    className={clsx({
-                      [classes.participantEliminatedImage]: participant.eliminated
-                    })}
-                    src={img}
-                    alt={"immagine"}
-                    width={80}
-                    height={56}
-                  />
-                </Avatar>
+                <ParticipantAvatar participant={participant}/>
               </ListItemIcon>
               <ListItemText>
                 <span className={classes.dateSpan}>{participant.name + ' ' + participant.lastName}</span> - {participant.description}

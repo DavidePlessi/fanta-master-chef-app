@@ -6,7 +6,7 @@ const palette = {
   },
   secondary: {
     main: "#E16440"
-  },
+  }
 }
 
 const typography = {

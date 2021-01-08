@@ -42,3 +42,10 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #CD243B;
+  border-radius: 10px;
+}

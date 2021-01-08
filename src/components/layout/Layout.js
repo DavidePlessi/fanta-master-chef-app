@@ -28,7 +28,7 @@ const Layout = ({children, maxWidth}) => {
         </Toolbar>
       </AppBar>
       <Container style={{
-        marginTop: 80,
+        marginTop: 60,
         maxWidth: maxWidth,
         padding: 20,
         backgroundColor: "transparent"

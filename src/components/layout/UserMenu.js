@@ -83,12 +83,7 @@ function UserMenu({t, doLogout, username}) {
         <MenuItem onClick={() => handleGoTo("/my-brigade")} className={classes.menuItem}>
           {" "}
           <GroupIcon className={classes.icon}/>
-          Fanta brigata
-        </MenuItem>
-        <MenuItem onClick={() => handleGoTo("/deploy-brigade")} className={classes.menuItem}>
-          {" "}
-          <LowPriorityIcon className={classes.icon}/>
-          Schiera brigata
+          La mia brigata
         </MenuItem>
         <MenuItem onClick={() => handleGoTo("/episodes")} className={classes.menuItem}>
           {" "}
@@ -98,8 +93,14 @@ function UserMenu({t, doLogout, username}) {
         <MenuItem onClick={() => handleGoTo("/participants")} className={classes.menuItem}>
           {" "}
           <RecentActorsIcon className={classes.icon}/>
-          Partecipanti
+          Concorrenti
         </MenuItem>
+        <MenuItem onClick={() => handleGoTo("/deploy-brigade")} className={classes.menuItem}>
+          {" "}
+          <LowPriorityIcon className={classes.icon}/>
+          Schiera brigata
+        </MenuItem>
+        <Divider style={{marginBottom: 10}}/>
         <MenuItem onClick={() => handleLogOut()} className={classes.menuItem}>
           {" "}
           <ExitToAppIcon className={classes.icon}/>

@@ -6,6 +6,8 @@ import message from "./message";
 import auth from "./auth";
 import episode from "./episode";
 import participant from "./participant";
+import fantaBrigade from "./fantaBrigade";
+import deployment from "./deployment";
 
 export default history =>
   combineReducers({
@@ -13,5 +15,7 @@ export default history =>
     auth,
     message,
     episode,
-    participant
+    participant,
+    fantaBrigade,
+    deployment
   });
