@@ -13,14 +13,22 @@ const useStyles = makeStyles((theme) => ({
 
 function FeedbackLoading(
   {
-    isAuthPending
+    isAuthPending,
+    isDeploymentPending,
+    isEpisodePending,
+    isParticipantPending,
+    isFantaBrigadePending
   }) {
   const classes = useStyles();
   return (
     <Backdrop
       className={classes.backdrop}
       open={
-        isAuthPending
+        isAuthPending ||
+        isDeploymentPending ||
+        isEpisodePending ||
+        isParticipantPending ||
+        isFantaBrigadePending
       }>
       <CircularProgress color="inherit"/>
     </Backdrop>
@@ -29,6 +37,10 @@ function FeedbackLoading(
 
 const mapStateProps = state => ({
   isAuthPending: state.auth.isLoading || false,
+  isDeploymentPending: state.deployment.isLoading || false,
+  isEpisodePending: state.episode.isLoading || false,
+  isParticipantPending: state.participant.isLoading || false,
+  isFantaBrigadePending: state.fantaBrigade.isLoading || false
 });
 
 export default connect(mapStateProps)(FeedbackLoading)

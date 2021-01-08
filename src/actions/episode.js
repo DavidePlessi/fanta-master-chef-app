@@ -5,6 +5,7 @@ import {
 } from './types'
 import {EpisodeApi} from "../api/episode";
 import _ from "lodash";
+import {setError} from "./message";
 
 const episodeApi = new EpisodeApi();
 
@@ -21,6 +22,7 @@ export const getEpisodes = () => async dispatch => {
       payload: {episodes: _.orderBy(episodes, ['number'], ['asc']) }
     });
   } catch (e) {
+    await setError(e)(dispatch)
     dispatch({
       type: EPISODE_LIST_REJECT,
       payload: {err: e}

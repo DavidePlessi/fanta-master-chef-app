@@ -10,6 +10,7 @@ import {
   DEPLOYMENT_GET_CURRENT_EPISODE_DEPLOYMENT_REJECT
 } from './types'
 import {DeploymentApi} from "../api/deployment";
+import {setError} from "./message";
 
 const deploymentApi = new DeploymentApi();
 
@@ -25,6 +26,7 @@ export const getMyDeployments = () => async dispatch => {
       payload: {myDeployments}
     })
   } catch (e) {
+    await setError(e)(dispatch)
     dispatch({
       type: DEPLOYMENT_GET_MY_DEPLOYMENT_REJECT,
       payload: {err: e}
@@ -44,6 +46,7 @@ export const getEpisodeDeployment = (episodeNumber) => async dispatch => {
       payload: {currentEpisodeDeployment}
     })
   } catch (e) {
+    await setError(e)(dispatch)
     dispatch({
       type: DEPLOYMENT_GET_CURRENT_EPISODE_DEPLOYMENT_REJECT,
       payload: {err: e}
@@ -54,14 +57,14 @@ export const getEpisodeDeployment = (episodeNumber) => async dispatch => {
 export const createOrUpdateDeploymentPair = (episodeNumbers, participants, callback) => async dispatch => {
   try {
     for(let episodeNumber of episodeNumbers){
-      debugger;
       await createOrUpdateDeployment(episodeNumber, participants, null)(dispatch);
     }
     if(callback){
+      debugger;
       callback();
     }
   } catch (e) {
-    alert(e)
+    await setError(e)(dispatch)
   }
 }
 
@@ -71,7 +74,6 @@ export const createOrUpdateDeployment = (episodeNumber, participants, callback) 
     payload: {}
   });
   try {
-    debugger;
     const newDeployment = await deploymentApi
       .createOrUpdateDeployment(10, episodeNumber, participants);
     dispatch({
@@ -82,6 +84,7 @@ export const createOrUpdateDeployment = (episodeNumber, participants, callback) 
       callback();
     }
   } catch (e) {
+    await setError(e)(dispatch)
     dispatch({
       type: DEPLOYMENT_CREATE_OR_UPDATE_REJECT,
       payload: {err: e}

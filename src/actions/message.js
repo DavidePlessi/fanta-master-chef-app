@@ -9,6 +9,9 @@ export const setError = (error) => async dispatch => {
       err = error.response.data.message;
     }
   }
+  else if (error.response && error.response.data && error.response.data.errorCode){
+    err = error.response.data.errorCode;
+  }
   else if (error.response && error.response.data)
     err = error.response.data.toString();
   else if(error.response && error.response.statusText)
@@ -26,6 +29,7 @@ export const setError = (error) => async dispatch => {
 }
 
 export const setSuccess = (message) => async dispatch => {
+  debugger;
   dispatch({
     type: MESSAGE_SET,
     payload: {

@@ -3,7 +3,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from "@material-ui/core/Snackbar";
 import {connect} from "react-redux";
 import {clearMessage} from "../../actions/message";
-import {withTranslation} from "react-i18next";
+import translateMessage from "../../utils/translateMessage";
 
 
 function Alert(props) {
@@ -12,12 +12,10 @@ function Alert(props) {
 
 export function FeedbackMessage(
   {
-    t,
     message,
     clearMessage,
     show
   }) {
-
   const handleClose = () => {
     clearMessage();
   }
@@ -28,7 +26,7 @@ export function FeedbackMessage(
       open={show && !!message.type && !!message.message}
       onClose={handleClose}>
       <Alert onClose={handleClose} severity={message.type || "error"}>
-        {t(message.message)}
+        {translateMessage(message.message)}
       </Alert>
     </Snackbar>
   )
@@ -41,4 +39,4 @@ const mapStateProps = state => ({
 
 export default connect(mapStateProps, {
   clearMessage
-})(withTranslation()(FeedbackMessage))
+})(FeedbackMessage)

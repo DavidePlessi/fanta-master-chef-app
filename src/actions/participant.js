@@ -5,6 +5,7 @@ import {
 } from './types'
 import {ParticipantApi} from "../api/participant";
 import _ from "lodash";
+import {setError} from "./message";
 
 const participantApi = new ParticipantApi();
 
@@ -24,6 +25,7 @@ export const getParticipants = () => async dispatch => {
         )}
     });
   } catch (e) {
+    await setError(e)(dispatch)
     dispatch({
       type: PARTICIPANT_LIST_REJECT,
       payload: {err: e}

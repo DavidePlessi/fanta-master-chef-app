@@ -7,6 +7,7 @@ import {
   FANTA_BRIGADE_LIST_REJECT
 } from './types'
 import {FantaBrigadeApi} from "../api/fantaBrigade";
+import {setError} from "./message";
 
 const fantaBrigadeApi = new FantaBrigadeApi();
 
@@ -24,6 +25,7 @@ export const getMyBrigade = () => async dispatch => {
       payload: {myBrigade}
     })
   } catch (e) {
+    await setError(e)(dispatch)
     dispatch({
       type: FANTA_BRIGADE_MY_BRIGADE_REJECT,
       payload: {err: e}
@@ -45,6 +47,7 @@ export const getBrigades = () => async dispatch => {
       payload: {brigades}
     })
   } catch (e) {
+    await setError(e)(dispatch)
     dispatch({
       type: FANTA_BRIGADE_LIST_REJECT,
       payload: {err: e}

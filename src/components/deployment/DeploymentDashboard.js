@@ -12,6 +12,7 @@ import {createOrUpdateDeploymentPair, getEpisodeDeployment} from "../../actions/
 import _ from 'lodash';
 import clsx from "clsx";
 import moment from "moment";
+import {setSuccess} from "../../actions/message";
 
 const useStyle = makeStyles(theme => ({
   episodesSelect: {
@@ -87,7 +88,8 @@ function DeploymentDashboard(
     getEpisodes,
     getMyBrigade,
     getEpisodeDeployment,
-    createOrUpdateDeploymentPair
+    createOrUpdateDeploymentPair,
+    setSuccess
   }) {
   const classes = useStyle();
   const [selectedEpisodes, setSelectedEpisodes] = useState("1-2");
@@ -144,7 +146,7 @@ function DeploymentDashboard(
 
   const handleSaveDeployment = () => {
     const episodes = selectedEpisodes.split('-').map(x => parseInt(x));
-    createOrUpdateDeploymentPair(episodes, participants, () => alert('Schieramento salvato'));
+    createOrUpdateDeploymentPair(episodes, participants, () => setSuccess('Schieramento salvato'));
   }
 
   return (
@@ -206,4 +208,10 @@ const mapSateToProps = state => ({
 
 export default connect(
   mapSateToProps,
-  {getEpisodes, getMyBrigade, getEpisodeDeployment, createOrUpdateDeploymentPair})(DeploymentDashboard)
+  {
+    getEpisodes,
+    getMyBrigade,
+    getEpisodeDeployment,
+    createOrUpdateDeploymentPair,
+    setSuccess
+  })(DeploymentDashboard)

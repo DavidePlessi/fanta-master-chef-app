@@ -3,11 +3,15 @@ import {Toolbar, Typography, AppBar, Container} from "@material-ui/core";
 import UserMenu from "./UserMenu";
 import TopBarTitle from "./TopBarTitle";
 import Logo from '../../img/logo.png'
+import FeedbackLoading from "./FeedbackLoading";
+import FeedbackMessage from "./FeedbackMessage";
 
 
 const Layout = ({children, maxWidth}) => {
   return (
     <Fragment>
+      <FeedbackLoading/>
+      <FeedbackMessage/>
       <AppBar position="fixed" style={{backgroundColor: "#CD243B"}}>
         <Toolbar>
           <img src={Logo} width={36} height={36} alt={"logo"}/>
