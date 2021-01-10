@@ -7,5 +7,8 @@ export class EpisodeApi {
     this.getEpisodes = async () => {
       return (await axios.get(this.apiUrl)).data;
     }
+    this.getEpisodeWithDeployment = async (episodeNumber, editionNumber) => {
+      return (await axios.get(this.apiUrl + '/with-deployment/' + editionNumber + '/' + episodeNumber)).data;
+    }
   }
 }

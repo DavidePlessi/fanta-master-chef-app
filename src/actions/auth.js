@@ -85,5 +85,5 @@ export const doLogout = () => async dispatch => {
     type: LOGOUT,
     payload: {}
   })
-  history.push("/")
+  history.push("/login")
 }
