@@ -3,7 +3,6 @@ import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from "@material-ui/core/Snackbar";
 import {connect} from "react-redux";
 import {clearMessage} from "../../actions/message";
-import translateMessage from "../../utils/translateMessage";
 
 
 function Alert(props) {
@@ -26,7 +25,7 @@ export function FeedbackMessage(
       open={show && !!message.type && !!message.message}
       onClose={handleClose}>
       <Alert onClose={handleClose} severity={message.type || "error"}>
-        {translateMessage(message.message)}
+        {message.message}
       </Alert>
     </Snackbar>
   )
