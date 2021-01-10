@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import _ from 'lodash'
 import Layout from "../layout/Layout";
+import {history} from "../../store";
 
 const PrivateRoute = (
   {
@@ -13,8 +14,14 @@ const PrivateRoute = (
     ...rest
   }) => {
   const canAccess = !_.isEmpty(user);
-  return canAccess
-    ? <Route
+
+
+  if(!canAccess) {
+    const redirectTo = {...window.location}.pathname;
+    return <Redirect to={'/login' + (!!redirectTo ? '?redirectTo=' + redirectTo : '')}/>
+  }
+
+  return  <Route
       {...rest}
       render={props =>(
         <Layout>
@@ -23,7 +30,6 @@ const PrivateRoute = (
         )
       }
     />
-    : <Redirect to={'/login'}/>
 };
 
 PrivateRoute.propTypes = {

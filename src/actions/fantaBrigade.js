@@ -8,6 +8,7 @@ import {
 } from './types'
 import {FantaBrigadeApi} from "../api/fantaBrigade";
 import {setError} from "./message";
+import _ from 'lodash';
 
 const fantaBrigadeApi = new FantaBrigadeApi();
 
@@ -33,15 +34,15 @@ export const getMyBrigade = () => async dispatch => {
   }
 }
 
-export const getBrigades = () => async dispatch => {
+export const getFantaBrigades = () => async dispatch => {
   dispatch({
     type: FANTA_BRIGADE_LIST_REQUEST,
     payload: {}
   });
 
   try {
-    const brigades = await fantaBrigadeApi.getFantaBrigades();
-
+    let brigades = await fantaBrigadeApi.getFantaBrigades();
+    brigades = _.orderBy(brigades, ['resultsPoint', 'name'], ['desc', 'asc']);
     dispatch({
       type: FANTA_BRIGADE_LIST_RESOLVE,
       payload: {brigades}

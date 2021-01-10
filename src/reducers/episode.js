@@ -1,11 +1,15 @@
 import {
   EPISODE_LIST_REQUEST,
   EPISODE_LIST_RESOLVE,
-  EPISODE_LIST_REJECT
+  EPISODE_LIST_REJECT,
+  EPISODE_GET_EPISODE_WITH_DEPLOYMENTS_REQUEST,
+  EPISODE_GET_EPISODE_WITH_DEPLOYMENTS_RESOLVE,
+  EPISODE_GET_EPISODE_WITH_DEPLOYMENTS_REJECT
 } from "../actions/types";
 
 const initialState = {
   episodes: [],
+  currentEpisodeWithDeployments: {},
   isLoading: false
 };
 
@@ -14,6 +18,7 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case EPISODE_LIST_REQUEST:
+    case EPISODE_GET_EPISODE_WITH_DEPLOYMENTS_REQUEST:
       return {
         ...state,
         isLoading: true
@@ -24,7 +29,14 @@ export default function (state = initialState, action) {
         episodes: [...payload.episodes],
         isLoading: false
       }
+    case EPISODE_GET_EPISODE_WITH_DEPLOYMENTS_RESOLVE:
+      return {
+        ...state,
+        currentEpisodeWithDeployments: {...payload.currentEpisodeWithDeployments},
+        isLoading: false
+      }
     case EPISODE_LIST_REJECT:
+    case EPISODE_GET_EPISODE_WITH_DEPLOYMENTS_REJECT:
       return {
         ...state,
         isLoading: false

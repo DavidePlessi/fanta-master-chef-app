@@ -16,6 +16,8 @@ import EpisodeList from "./components/episode/EpisodeList";
 import ParticipantList from "./components/participant/ParticipantList";
 import MyBrigade from "./components/brigade/MyBrigade";
 import DeploymentDashboard from "./components/deployment/DeploymentDashboard";
+import EpisodeDeployments from "./components/episode/EpisodeDeployments";
+import Ranking from "./components/brigade/Ranking";
 
 function App() {
 
@@ -31,12 +33,14 @@ function App() {
               <Switch>
                 <Route exact path='/login' component={Login}/>
                 <Route exact path={'/'}>
-                  <Redirect to={'/deploy-brigade'}/>
+                  <Redirect to={'/ranking'}/>
                 </Route>
+                <PrivateRoute exact path='/ranking' component={Ranking}/>
                 <PrivateRoute exact path='/episodes' component={EpisodeList}/>
                 <PrivateRoute exact path='/my-brigade' component={MyBrigade}/>
                 <PrivateRoute exact path='/deploy-brigade' component={DeploymentDashboard}/>
                 <PrivateRoute exact path='/participants' component={ParticipantList}/>
+                <PrivateRoute exact path='/episode/:editionNumber/:episodeNumber' component={EpisodeDeployments}/>
               </Switch>
             </ConnectedRouter>
           </Suspense>
