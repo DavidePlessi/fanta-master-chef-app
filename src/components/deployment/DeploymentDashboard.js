@@ -200,6 +200,17 @@ function DeploymentDashboard(
   )
 }
 
+DeploymentDashboard.propTypes = {
+  episodes: PropTypes.array.isRequired,
+  myBrigade: PropTypes.object.isRequired,
+  currentDeployment: PropTypes.object.isRequired,
+  getEpisodes: PropTypes.func.isRequired,
+  getMyBrigade: PropTypes.func.isRequired,
+  getEpisodeDeployment: PropTypes.func.isRequired,
+  createOrUpdateDeploymentPair: PropTypes.func.isRequired,
+  setSuccess: PropTypes.func.isRequired
+}
+
 const mapSateToProps = state => ({
   episodes: state.episode.episodes || [],
   myBrigade: state.fantaBrigade.myBrigade || {},

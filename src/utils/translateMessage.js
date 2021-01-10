@@ -18,6 +18,10 @@ const translateMessage =  (key) => {
       return 'Il numero dei partecipanti è obbligatorio'
     case 'FME50002':
       return 'Email o password non valida'
+    case 'FME50003':
+      return 'Mail non valida!'
+    case 'FME50004':
+      return 'Specificare una password!'
     default:
       return key;
   }

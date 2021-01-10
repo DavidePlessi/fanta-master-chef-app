@@ -56,11 +56,12 @@ export const getEpisodeDeployment = (episodeNumber) => async dispatch => {
 
 export const createOrUpdateDeploymentPair = (episodeNumbers, participants, callback) => async dispatch => {
   try {
+    let result = true;
     for(let episodeNumber of episodeNumbers){
-      await createOrUpdateDeployment(episodeNumber, participants, null)(dispatch);
+      result = await createOrUpdateDeployment(episodeNumber, participants, null)(dispatch);
+      if(!result) throw Error('Lo schieramento non è stato salvato');
     }
     if(callback){
-      debugger;
       callback();
     }
   } catch (e) {
@@ -83,11 +84,13 @@ export const createOrUpdateDeployment = (episodeNumber, participants, callback) 
     if(callback){
       callback();
     }
+    return true;
   } catch (e) {
     await setError(e)(dispatch)
     dispatch({
       type: DEPLOYMENT_CREATE_OR_UPDATE_REJECT,
       payload: {err: e}
-    })
+    });
+    return false;
   }
 }
