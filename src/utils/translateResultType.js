@@ -1,27 +1,27 @@
 const translateResultType =  (key) => {
   switch (key) {
     case 'ParticipantInMysteryBoxPodium':
-      return 'Concorrente tra i primi tre nella mystery box'
+      return ' tra i primi tre nella mystery box'
     case 'ParticipantWinnerOfMysteryBox':
-      return 'Concorrente vincitore della mystery box'
+      return ' vincitore della mystery box'
     case 'ParticipantWinnerOfInventionTest':
-      return "Concorrente vincitore dell'invention test"
+      return " vincitore dell'invention test"
     case 'ParticipantWinnerOfMysteryBoxAndInventionTest':
-      return 'Concorrente vincitore sia della mystery che dell\'invention'
+      return ' vincitore sia della mystery che dell\'invention'
     case 'ParticipantInInventionTestWorst':
-      return 'Concorrente tra i peggiori dell\'invention test'
+      return ' tra i peggiori dell\'invention test'
     case 'ParticipantNotInABrigade':
-      return 'Concorrente escluso dall\'esterna'
+      return ' escluso dall\'esterna'
     case 'ParticipantHeadOfRedBrigade':
-      return 'Concorrente capo brigata rossa'
+      return ' capo brigata rossa'
     case 'ParticipantHeadOfBlueBrigade':
-      return 'Concorrente capo brigata blu'
+      return ' capo brigata blu'
     case 'ParticipantInWinnerBrigade':
-      return 'Concorrente nella brigata vincitrice'
+      return ' nella brigata vincitrice'
     case 'ParticipantInPressureTest':
-      return 'Concorrente al pressure test'
+      return ' al pressure test'
     case 'ParticipantEliminated':
-      return 'Concorrente eliminato'
+      return ' eliminato'
     default:
       return key;
   }

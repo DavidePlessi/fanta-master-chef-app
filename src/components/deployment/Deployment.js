@@ -87,11 +87,11 @@ function Deployment({deployment}) {
           const isNegative = res.value < 0;
           return (
             <ListItem>
-              <span>{translateResultType(res.type)}
+              <span><b>{res.participantName}</b> {translateResultType(res.type)}
                 <span className={clsx({
-                    [classes.resultListItem]: true,
-                    [classes.resultListItemIsNegative]: isNegative,
-                  })}>
+                  [classes.resultListItem]: true,
+                  [classes.resultListItemIsNegative]: isNegative,
+                })}>
                   {(isNegative ? ' -' : ' +') + res.value}
                 </span>
               </span>
