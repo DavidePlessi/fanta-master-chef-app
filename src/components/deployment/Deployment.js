@@ -2,14 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import MainContainer from "../container/MainContainer";
 import {makeStyles} from "@material-ui/core/styles";
-import {Divider, Typography} from "@material-ui/core";
+import {Divider, List, ListItem, Typography} from "@material-ui/core";
 import ParticipantAvatar from "../participant/ParticipantAvatar";
 import clsx from "clsx";
+import translateResultType from "../../utils/translateResultType";
 
 const useStyle = makeStyles((theme) => ({
-  mainContainer: {
-
-  },
+  mainContainer: {},
   avatar: {
     margin: 'auto'
   },
@@ -33,13 +32,20 @@ const useStyle = makeStyles((theme) => ({
   },
   pointSpan: {
     color: theme.palette.primary.main
+  },
+  resultListItem: {
+    fontSize: "1.5 rem",
+    color: 'green'
+  },
+  resultListItemIsNegative: {
+    color: 'red'
   }
 }));
 
 function Deployment({deployment}) {
   const classes = useStyle();
 
-  if(!deployment.participants || deployment.participants.length < 4){
+  if (!deployment.participants || deployment.participants.length < 4) {
     return <></>
   }
 
@@ -74,6 +80,25 @@ function Deployment({deployment}) {
           )
         })}
       </div>
+      <Divider style={{marginBottom: 10, marginTop: 10}}/>
+      <Typography variant={'h5'} component={'h5'}>Risultati: </Typography>
+      <List>
+        {!!deployment.results && !!deployment.results.results && deployment.results.results.map(res => {
+          const isNegative = res.value < 0;
+          return (
+            <ListItem>
+              <span>{translateResultType(res.type)}
+                <span className={clsx({
+                    [classes.resultListItem]: true,
+                    [classes.resultListItemIsNegative]: isNegative,
+                  })}>
+                  {(isNegative ? ' -' : ' +') + res.value}
+                </span>
+              </span>
+            </ListItem>
+          )
+        })}
+      </List>
     </MainContainer>
   )
 }

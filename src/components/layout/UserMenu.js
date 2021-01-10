@@ -14,6 +14,7 @@ import GroupIcon from '@material-ui/icons/Group';
 import LowPriorityIcon from '@material-ui/icons/LowPriority';
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
 import MovieIcon from '@material-ui/icons/Movie';
+import GavelIcon from '@material-ui/icons/Gavel';
 
 
 const useStyles = makeStyles(() => ({
@@ -80,6 +81,11 @@ function UserMenu({t, doLogout, username}) {
           {username}
         </MenuItem>
         <Divider style={{marginBottom: 10}}/>
+        <MenuItem onClick={() => handleGoTo("/ranking")} className={classes.menuItem}>
+          {" "}
+          <GavelIcon className={classes.icon}/>
+          Classifica
+        </MenuItem>
         <MenuItem onClick={() => handleGoTo("/my-brigade")} className={classes.menuItem}>
           {" "}
           <GroupIcon className={classes.icon}/>
