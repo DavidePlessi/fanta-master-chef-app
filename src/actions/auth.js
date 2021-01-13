@@ -20,6 +20,7 @@ export const doLogin = (
       type: LOGIN_REQUEST,
       payload: {}
     });
+    email = email.trim()
 
     const token = (await authApi.doLogin(email, password)).token;
 
