@@ -66,7 +66,7 @@ function Ranking({brigades, getFantaBrigades}){
                 style={{marginBottom: 10}}>
                 {brigade.name}
                 <span className={classes.pointSpan}>
-                {(!!brigade.resultsPoint ? ' - ' + brigade.resultsPoint + ' punti' : '')}
+                {((brigade.resultsPoint || 0) + ' punti')}
               </span>
               </Typography>
               <Divider style={{marginBottom: 10}}/>
