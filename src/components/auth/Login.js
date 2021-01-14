@@ -14,7 +14,7 @@ import MainContainer from "../container/MainContainer";
 import FeedbackLoading from "../layout/FeedbackLoading";
 import FeedbackMessage from "../layout/FeedbackMessage";
 
-const Login = ({doLogin, user}) => {
+const Login = ({doLogin, user, redirectTo}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const isValid = () => email.length > 0 && password.length > 0;
@@ -33,7 +33,8 @@ const Login = ({doLogin, user}) => {
   };
 
   if (!_.isEmpty(user)) {
-    return <Redirect to='/'/>
+    console.log('AFTER LOGIN ', redirectTo);
+    return <Redirect to={redirectTo}/>
   }
 
   return (
@@ -91,7 +92,10 @@ const Login = ({doLogin, user}) => {
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  redirectTo: !!state.router.location.query
+    ? state.router.location.query.redirectTo || '/'
+    : '/'
 })
 
 export default connect(

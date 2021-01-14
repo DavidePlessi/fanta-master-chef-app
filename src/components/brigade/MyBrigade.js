@@ -66,17 +66,17 @@ function MyBrigade({myBrigade, getMyBrigade}) {
             ))}
           </div>
         </Grid>
-        <Grid item={true} xs={12}>
-          <List>
-            {!!myBrigade.results && myBrigade.results.map(result => {
-              return (
-                <ListItem>
-                  <ListItemText>result</ListItemText>
-                </ListItem>
-              )
-            })}
-          </List>
-        </Grid>
+        {/*<Grid item={true} xs={12}>*/}
+        {/*  <List>*/}
+        {/*    {!!myBrigade.results && myBrigade.results.map(result => {*/}
+        {/*      return (*/}
+        {/*        <ListItem>*/}
+        {/*          <ListItemText>result</ListItemText>*/}
+        {/*        </ListItem>*/}
+        {/*      )*/}
+        {/*    })}*/}
+        {/*  </List>*/}
+        {/*</Grid>*/}
       </Grid>
     </MainContainer>
   )
