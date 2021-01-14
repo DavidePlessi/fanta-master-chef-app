@@ -92,7 +92,7 @@ function Deployment({deployment}) {
                   [classes.resultListItem]: true,
                   [classes.resultListItemIsNegative]: isNegative,
                 })}>
-                  {(isNegative ? ' -' : ' +') + res.value}
+                  {(isNegative ? ' ' : ' +') + res.value}
                 </span>
               </span>
             </ListItem>
