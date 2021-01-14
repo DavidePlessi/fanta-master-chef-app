@@ -65,15 +65,15 @@ function EpisodeDetails(
     saveEpisodeResults({
       number: episode.number,
       editionNumber: episode.editionNumber,
-      mysteryBoxPodium,
-      mysteryBoxWorst,
-      inventionTestPodium,
-      inventionTestWorst,
-      redBrigade,
-      blueBrigade,
+      mysteryBoxPodium: mysteryBoxPodium.map(x => x._id),
+      mysteryBoxWorst: mysteryBoxWorst.map(x => x._id),
+      inventionTestPodium: inventionTestPodium.map(x => x._id),
+      inventionTestWorst: inventionTestWorst.map(x => x._id),
+      redBrigade: redBrigade.map(x => x._id),
+      blueBrigade: blueBrigade.map(x => x._id),
       redBrigadeWins,
-      pressureTest,
-      eliminated
+      pressureTest: pressureTest.map(x => x._id),
+      eliminated: eliminated.map(x => x._id)
     })
   }
 
