@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {makeStyles} from "@material-ui/core/styles";
 import {getEpisodeWithDeployments} from "../../actions/episode";
 import MainContainer from "../container/MainContainer";
-import {Divider, Grid, ListItemText, Typography} from "@material-ui/core";
+import {Divider, Typography} from "@material-ui/core";
 import moment from "moment";
 import _ from 'lodash';
 import Deployment from "../deployment/Deployment";
