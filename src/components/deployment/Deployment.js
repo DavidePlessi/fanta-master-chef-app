@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import MainContainer from "../container/MainContainer";
 import {makeStyles} from "@material-ui/core/styles";
-import {Divider, List, ListItem, Typography} from "@material-ui/core";
+import {Divider, Typography} from "@material-ui/core";
 import ParticipantAvatar from "../participant/ParticipantAvatar";
 import clsx from "clsx";
-import translateResultType from "../../utils/translateResultType";
+import ResultsList from "./ResultsList";
 
 const useStyle = makeStyles((theme) => ({
   mainContainer: {},
@@ -81,24 +81,7 @@ function Deployment({deployment}) {
         })}
       </div>
       <Divider style={{marginBottom: 10, marginTop: 10}}/>
-      <Typography variant={'h5'} component={'h5'}>Risultati: </Typography>
-      <List>
-        {!!deployment.results && !!deployment.results.results && deployment.results.results.map(res => {
-          const isNegative = res.value < 0;
-          return (
-            <ListItem>
-              <span><b>{res.participantName}</b> {translateResultType(res.type)}
-                <span className={clsx({
-                  [classes.resultListItem]: true,
-                  [classes.resultListItemIsNegative]: isNegative,
-                })}>
-                  {(isNegative ? ' ' : ' +') + res.value}
-                </span>
-              </span>
-            </ListItem>
-          )
-        })}
-      </List>
+      <ResultsList results={deployment.results}/>
     </MainContainer>
   )
 }

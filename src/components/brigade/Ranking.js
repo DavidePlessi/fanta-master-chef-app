@@ -8,6 +8,7 @@ import {Divider, Typography} from "@material-ui/core";
 import ParticipantAvatar from "../participant/ParticipantAvatar";
 import clsx from "clsx";
 import Deployment from "../deployment/Deployment";
+import BrigadeWithResults from "./BrigadeWithResults";
 
 const useStyle = makeStyles(theme => ({
   participantContainer: {
@@ -59,37 +60,7 @@ function Ranking({brigades, getFantaBrigades}){
       {!!brigades && brigades.map(brigade => {
         return (
           <>
-            <MainContainer>
-              <Typography
-                variant={'h5'}
-                component={'h5'}
-                style={{marginBottom: 10}}>
-                {brigade.name}{' - '}
-                <span className={classes.pointSpan}>
-                {((brigade.resultsPoint || 0) + ' punti')}
-              </span>
-              </Typography>
-              <Divider style={{marginBottom: 10}}/>
-              <div className={classes.participantsContainer}>
-                {!!brigade.participants && brigade.participants.map(participant => {
-                  return (
-                    <div className={classes.participantContainer}>
-                      <ParticipantAvatar participant={participant} className={classes.avatar}/>
-                      <Typography
-                        variant={'p'}
-                        component={'p'}
-                        align={'center'}
-                        className={clsx({
-                          [classes.participantEliminatedName]: participant.eliminated
-                        })}
-                      >
-                        {participant.name + " " + participant.lastName}
-                      </Typography>
-                    </div>
-                  )
-                })}
-              </div>
-            </MainContainer>
+            <BrigadeWithResults brigade={brigade}/>
             <Divider style={{marginBottom: 10, marginTop: 10}}/>
           </>
         )
