@@ -7,7 +7,10 @@ import {
   EPISODE_GET_EPISODE_WITH_DEPLOYMENTS_REJECT,
   EPISODE_SAVE_RESULTS_REQUEST,
   EPISODE_SAVE_RESULTS_RESOLVE,
-  EPISODE_SAVE_RESULTS_REJECT
+  EPISODE_SAVE_RESULTS_REJECT,
+  EPISODE_GET_EPISODE_REQUEST,
+  EPISODE_GET_EPISODE_RESOLVE,
+  EPISODE_GET_EPISODE_REJECT
 } from './types'
 import {EpisodeApi} from "../api/episode";
 import _ from "lodash";
@@ -31,6 +34,26 @@ export const getEpisodes = () => async dispatch => {
     await setError(e)(dispatch)
     dispatch({
       type: EPISODE_LIST_REJECT,
+      payload: {err: e}
+    })
+  }
+}
+
+export const getEpisode = (editionNumber, episodeNumber) => async dispatch => {
+  dispatch({
+    type: EPISODE_GET_EPISODE_REQUEST,
+    payload: {}
+  })
+  try {
+    const currentEpisode = await episodeApi.getEpisode(episodeNumber, editionNumber);
+    dispatch({
+      type: EPISODE_GET_EPISODE_RESOLVE,
+      payload: {currentEpisode}
+    })
+  } catch (e) {
+    await setError(e)(dispatch)
+    dispatch({
+      type: EPISODE_GET_EPISODE_REJECT,
       payload: {err: e}
     })
   }

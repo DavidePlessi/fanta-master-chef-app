@@ -19,6 +19,7 @@ import DeploymentDashboard from "./components/deployment/DeploymentDashboard";
 import EpisodeDeployments from "./components/episode/EpisodeDeployments";
 import Ranking from "./components/brigade/Ranking";
 import EpisodeDetails from "./components/episode/EpisodeDetails";
+import EpisodeResults from "./components/episode/EpisodeResults";
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
                 <PrivateRoute exact path='/deploy-brigade' component={DeploymentDashboard}/>
                 <PrivateRoute exact path='/participants' component={ParticipantList}/>
                 <PrivateRoute exact path='/episode/:editionNumber/:episodeNumber' component={EpisodeDeployments}/>
+                <PrivateRoute exact path='/episode-results/:editionNumber/:episodeNumber' component={EpisodeResults}/>
                 <PrivateRoute exact path='/episode-detail/:editionNumber/:episodeNumber' component={EpisodeDetails}/>
               </Switch>
             </ConnectedRouter>

@@ -6,9 +6,8 @@ import {getEpisodeWithDeployments, saveEpisodeResults} from "../../actions/episo
 import {getParticipants} from "../../actions/participant";
 import ParticipantTransferList from "../participant/ParticipantTransferList";
 import MainContainer from "../container/MainContainer";
-import {Divider, FormControlLabel, Grid, Switch, Typography} from "@material-ui/core";
+import {Divider, FormControlLabel, Switch, Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import EpisodeSelect from "./EpisodesSelect";
 
 const useStyle = makeStyles(theme => ({
 

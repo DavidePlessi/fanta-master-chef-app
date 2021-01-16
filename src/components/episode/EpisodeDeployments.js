@@ -4,10 +4,12 @@ import {connect} from "react-redux";
 import {makeStyles} from "@material-ui/core/styles";
 import {getEpisodeWithDeployments} from "../../actions/episode";
 import MainContainer from "../container/MainContainer";
-import {Divider, Typography} from "@material-ui/core";
+import {Divider, IconButton, Typography} from "@material-ui/core";
 import moment from "moment";
 import _ from 'lodash';
 import Deployment from "../deployment/Deployment";
+import {history} from "../../store";
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyle = makeStyles(theme => ({
   dateSpan: {
@@ -33,6 +35,14 @@ function EpisodeDeployments(
     getEpisodeWithDeployments(editionNumber, episodeNumber);
   }, [match, getEpisodeWithDeployments])
 
+  const goToResults = () => {
+    const {
+      editionNumber,
+      episodeNumber
+    } = match.params;
+    history.push('/episode-results/' + editionNumber + '/' + episodeNumber)
+  }
+
   if (_.isEmpty(episode)) {
     return <MainContainer>
       <Typography variant={'h4'} component={'h4'} style={{marginBottom: 10}}>
@@ -50,7 +60,10 @@ function EpisodeDeployments(
           Episodio {episode.number}
         </Typography>
         <Divider style={{marginBottom: 10}}/>
-        <span className={classes.dateSpan}>{episodeDateString + time}</span> - {episode.description}
+        <IconButton onClick={goToResults} color={'primary'}>
+          <SearchIcon/>
+        </IconButton>
+        <span className={classes.dateSpan}>{' ' + episodeDateString + time}</span> - {episode.description}
       </MainContainer>
       <Divider style={{marginBottom: 10, marginTop: 10}}/>
       {!!episode.deployments && episode.deployments.map(deployment => {
