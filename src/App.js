@@ -9,17 +9,17 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import PrivateRoute from "./components/routing/PrivateRoute";
 import i18n from "i18next";
 import {store, history} from "./store";
-import Login from "./components/auth/Login";
+import Login from "./containers/auth/Login";
 import {loadUser} from "./actions/auth";
 import theme from "./theme";
-import EpisodeList from "./components/episode/EpisodeList";
-import ParticipantList from "./components/participant/ParticipantList";
-import MyBrigade from "./components/brigade/MyBrigade";
-import DeploymentDashboard from "./components/deployment/DeploymentDashboard";
-import EpisodeDeployments from "./components/episode/EpisodeDeployments";
-import Ranking from "./components/brigade/Ranking";
-import EpisodeDetails from "./components/episode/EpisodeDetails";
-import EpisodeResults from "./components/episode/EpisodeResults";
+import EpisodeList from "./containers/episode/EpisodeList";
+import ParticipantList from "./containers/participant/ParticipantList";
+import MyBrigade from "./containers/brigade/MyBrigade";
+import DeploymentDashboard from "./containers/deployment/DeploymentDashboard";
+import EpisodeDeployments from "./containers/episode/EpisodeDeployments";
+import Ranking from "./containers/brigade/Ranking";
+import EpisodeDetails from "./containers/episode/EpisodeDetails";
+import EpisodeResults from "./containers/episode/EpisodeResults";
 
 function App() {
 

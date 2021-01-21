@@ -4,8 +4,8 @@ import {connect} from "react-redux";
 import {makeStyles} from "@material-ui/core/styles";
 import {getEpisodeWithDeployments, saveEpisodeResults} from "../../actions/episode";
 import {getParticipants} from "../../actions/participant";
-import ParticipantTransferList from "../participant/ParticipantTransferList";
-import MainContainer from "../container/MainContainer";
+import ParticipantTransferList from "../../components/participant/ParticipantTransferList";
+import MainContainer from "../../components/container/MainContainer";
 import {Divider, FormControlLabel, Switch, Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 

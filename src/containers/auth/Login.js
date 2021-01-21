@@ -10,9 +10,9 @@ import {
 import {Redirect} from "react-router-dom";
 
 import _ from 'lodash'
-import MainContainer from "../container/MainContainer";
-import FeedbackLoading from "../layout/FeedbackLoading";
-import FeedbackMessage from "../layout/FeedbackMessage";
+import MainContainer from "../../components/container/MainContainer";
+import FeedbackLoading from "../../components/layout/FeedbackLoading";
+import FeedbackMessage from "../../components/layout/FeedbackMessage";
 
 const Login = ({doLogin, user, redirectTo}) => {
   const [email, setEmail] = useState("");

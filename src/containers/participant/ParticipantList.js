@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import MainContainer from "../container/MainContainer";
+import MainContainer from "../../components/container/MainContainer";
 import { makeStyles } from "@material-ui/core/styles";
 import {Avatar, Divider, List, ListItem, ListItemIcon, ListItemText, Typography} from "@material-ui/core";
 import {getParticipants} from "../../actions/participant";
 import clsx from "clsx";
 import getParticipantImage from "../../utils/getParticipantImage";
-import ParticipantAvatar from "./ParticipantAvatar";
+import ParticipantAvatar from "../../components/participant/ParticipantAvatar";
 
 const useStyle = makeStyles(theme => ({
   participantListContainer: {

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import MainContainer from "../container/MainContainer";
+import MainContainer from "../../components/container/MainContainer";
 import {makeStyles} from "@material-ui/core/styles";
 import {getMyBrigade} from "../../actions/fantaBrigade";
 import {Button, Divider, Typography} from "@material-ui/core";
-import ParticipantAvatar from "../participant/ParticipantAvatar";
-import EpisodeSelect from "../episode/EpisodesSelect";
+import ParticipantAvatar from "../../components/participant/ParticipantAvatar";
+import EpisodeSelect from "../../components/episode/EpisodesSelect";
 import {getEpisodes} from "../../actions/episode";
 import {createOrUpdateDeploymentPair, getEpisodeDeployment} from "../../actions/deployment";
 import _ from 'lodash';
@@ -66,6 +66,7 @@ function getNextEpisodes(episodes) {
 }
 
 function getCanModifyDeployment(selectedEpisodeNumber, episodes) {
+  debugger;
   const selectedEpisode = episodes.find(x => x.number === selectedEpisodeNumber);
   if (!selectedEpisode) return false;
 
@@ -74,6 +75,7 @@ function getCanModifyDeployment(selectedEpisodeNumber, episodes) {
   const includeToday = todayTime <= 1330;
   const episodeDate = (new Date(selectedEpisode.date));
   episodeDate.setHours(0, 0, 0, 0);
+  today.setHours(0, 0, 0, 0);
 
   return includeToday
     ? episodeDate >= today

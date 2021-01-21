@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {makeStyles} from "@material-ui/core/styles";
 import {getEpisodeWithDeployments} from "../../actions/episode";
-import MainContainer from "../container/MainContainer";
+import MainContainer from "../../components/container/MainContainer";
 import {Divider, IconButton, Typography} from "@material-ui/core";
 import moment from "moment";
 import _ from 'lodash';
-import Deployment from "../deployment/Deployment";
+import Deployment from "../../components/deployment/Deployment";
 import {history} from "../../store";
 import SearchIcon from '@material-ui/icons/Search';
 

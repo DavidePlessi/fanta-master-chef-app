@@ -2,11 +2,11 @@ import React, {useEffect} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {Divider, Typography} from "@material-ui/core";
 import _ from 'lodash';
-import MainContainer from "../container/MainContainer";
+import MainContainer from "../../components/container/MainContainer";
 import Button from "@material-ui/core/Button";
-import ParticipantAvatar from "../participant/ParticipantAvatar";
+import ParticipantAvatar from "../../components/participant/ParticipantAvatar";
 import clsx from "clsx";
-import ParticipantAvatarList from "../participant/ParticipantAvatarList.";
+import ParticipantAvatarList from "../../components/participant/ParticipantAvatarList.";
 import {getEpisode} from "../../actions/episode";
 import {connect} from "react-redux";
 

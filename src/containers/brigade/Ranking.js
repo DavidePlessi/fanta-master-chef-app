@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import MainContainer from "../container/MainContainer";
+import MainContainer from "../../components/container/MainContainer";
 import {makeStyles} from "@material-ui/core/styles";
 import {getFantaBrigades} from "../../actions/fantaBrigade";
 import {Divider, Typography} from "@material-ui/core";
-import ParticipantAvatar from "../participant/ParticipantAvatar";
+import ParticipantAvatar from "../../components/participant/ParticipantAvatar";
 import clsx from "clsx";
-import Deployment from "../deployment/Deployment";
-import BrigadeWithResults from "./BrigadeWithResults";
+import Deployment from "../../components/deployment/Deployment";
+import BrigadeWithResults from "../../components/brigade/BrigadeWithResults";
 
 const useStyle = makeStyles(theme => ({
   participantContainer: {

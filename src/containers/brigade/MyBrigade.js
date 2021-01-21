@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getMyBrigade} from "../../actions/fantaBrigade";
-import BrigadeWithResults from "./BrigadeWithResults";
+import BrigadeWithResults from "../../components/brigade/BrigadeWithResults";
 
 
 function MyBrigade({myBrigade, getMyBrigade}) {
