@@ -8,6 +8,7 @@ import episode from "./episode";
 import participant from "./participant";
 import fantaBrigade from "./fantaBrigade";
 import deployment from "./deployment";
+import gameSession from "./gameSession";
 
 export default history =>
   combineReducers({
@@ -17,5 +18,6 @@ export default history =>
     episode,
     participant,
     fantaBrigade,
-    deployment
+    deployment,
+    gameSession
   });

@@ -16,6 +16,8 @@ const translateMessage =  (key) => {
       return 'Il campo partecipanti è obbligatorio'
     case 'FME00007':
       return 'Il numero dei partecipanti è obbligatorio'
+    case 'FME00008':
+      return 'Sessione di gioco non valida'
     case 'FME50002':
       return 'Email o password non valida'
     case 'FME50003':

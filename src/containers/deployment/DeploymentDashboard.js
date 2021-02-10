@@ -66,7 +66,6 @@ function getNextEpisodes(episodes) {
 }
 
 function getCanModifyDeployment(selectedEpisodeNumber, episodes) {
-  debugger;
   const selectedEpisode = episodes.find(x => x.number === selectedEpisodeNumber);
   if (!selectedEpisode) return false;
 

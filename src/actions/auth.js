@@ -8,6 +8,7 @@ import {
 } from "./types";
 import {setError} from "./message";
 import setAuthToken from "../utils/setAuthToken";
+import {getMyGameSessions, setCurrentGameSession} from "./gameSession";
 
 const authApi = new AuthApi();
 
@@ -29,6 +30,8 @@ export const doLogin = (
 
     const user = await authApi.getUserData();
 
+    await getMyGameSessions(true)(dispatch);
+
     dispatch({
       type: LOGIN_RESOLVE,
       payload: {
@@ -36,6 +39,7 @@ export const doLogin = (
         user: user
       }
     });
+
   } catch (e) {
     localStorage.removeItem("token");
     await setError(e)(dispatch)
@@ -62,6 +66,8 @@ export const loadUser = () => async dispatch => {
 
     const user = await authApi.getUserData();
 
+    await getMyGameSessions(true)(dispatch);
+
     dispatch({
       type: USER_LOADING_RESOLVE,
       payload: {
@@ -82,6 +88,7 @@ export const loadUser = () => async dispatch => {
 
 export const doLogout = () => async dispatch => {
   localStorage.removeItem("token")
+  await setCurrentGameSession({})(dispatch);
   dispatch({
     type: LOGOUT,
     payload: {}

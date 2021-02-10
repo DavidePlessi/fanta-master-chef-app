@@ -5,6 +5,7 @@ import TopBarTitle from "./TopBarTitle";
 import Logo from '../../img/logo.png'
 import FeedbackLoading from "./FeedbackLoading";
 import FeedbackMessage from "./FeedbackMessage";
+import GameSessionSelect from "../gameSession/GameSessionSelect";
 
 
 const Layout = ({children, maxWidth}) => {
@@ -25,6 +26,7 @@ const Layout = ({children, maxWidth}) => {
             <TopBarTitle/>
           </Typography>
           <div style={{width: 100}}>
+            <GameSessionSelect/>
           </div>
           <div style={{position: "fixed", top: 4, right: 10}}>
             <UserMenu/>
