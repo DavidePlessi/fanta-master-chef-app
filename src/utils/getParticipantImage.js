@@ -1,70 +1,67 @@
 
-import Alessandra from '../img/alessandra.jpg';
-import Antonio from '../img/antonio.jpg';
-import Azzurra from '../img/azzurra.jpg';
-import Camilla from '../img/camilla.jpg';
-import Cristiano from '../img/cristiano.jpg';
-import Daiana from '../img/daiana.jpg';
-import Eduard from '../img/eduard.jpg';
-import Federica from '../img/federica.jpg';
-import Francesco from '../img/francesco.jpg';
-import Aquila from '../img/francesco-aquila.jpg';
-import Giuseppe from '../img/giuseppe.jpg';
-import Igor from '../img/igor.jpg';
-import Ilda from '../img/ilda.jpg';
-import Irene from '../img/irene.jpg';
-import Irish from '../img/irish.jpg';
-import JiaBi from '../img/jia-bi.jpg';
-import Marco from '../img/marco.jpg';
-import Maxwell from '../img/maxwell.jpg';
-import Monir from '../img/monir.jpg';
-import Sedighe from '../img/sedighe.jpg';
-import Valeria from '../img/valeria.jpg';
+import Andrea from "../img/andrea.png";
+import Andreal from "../img/andreal_.png";
+import Anna from "../img/anna.png";
+import Bruno from "../img/bruno.png";
+import Carmine from "../img/carmine.png";
+import Chri from "../img/chri.png";
+import Dalia from "../img/dalia.png";
+import Elena from "../img/elena.png";
+import Fede from "../img/fede.png";
+import Giulia from "../img/giulia.png";
+import Lia from "../img/lia.png";
+import Mery from "../img/mery.png";
+import Mime from "../img/mime.png";
+import Nick from "../img/nick.png";
+import Nico_ from "../img/nico_.png";
+import Pietro from "../img/pietro.png";
+import Polone from "../img/polone.png";
+import Rita from "../img/rita.png";
+import Tina from "../img/tina.png";
+import Tracy from "../img/tracy.png";
 
 export default function getParticipantImage(key) {
   switch (key) {
-    case 'alessandra.jpg':
-      return Alessandra;
-    case 'antonio.jpg':
-      return Antonio;
-    case 'azzurra.jpg':
-      return Azzurra;
-    case 'camilla.jpg':
-      return Camilla;
-    case 'cristiano.jpg':
-      return Cristiano;
-    case 'daiana.jpg':
-      return Daiana;
-    case 'eduard.jpg':
-      return Eduard;
-    case 'federica.jpg':
-      return Federica;
-    case 'francesco.jpg':
-      return Francesco;
-    case 'francesco-aquila.jpg':
-      return Aquila;
-    case 'giuseppe.jpg':
-      return Giuseppe;
-    case 'igor.jpg':
-      return Igor;
-    case 'ilda.jpg':
-      return Ilda;
-    case 'irene.jpg':
-      return Irene;
-    case 'irish.jpg':
-      return Irish;
-    case 'jia-bi.jpg':
-      return JiaBi;
-    case 'marco.jpg':
-      return Marco;
-    case 'maxwell.jpg':
-      return Maxwell;
-    case 'monir.jpg':
-      return Monir;
-    case 'sedighe.jpg':
-      return Sedighe;
-    case 'valeria.jpg':
-      return Valeria;
+    case 'andrea.png':
+      return Andrea;
+    case 'andreal_.png':
+      return Andreal;
+    case 'anna.png':
+      return Anna;
+    case 'bruno.png':
+      return Bruno;
+    case 'carmine.png':
+      return Carmine;
+    case 'chri.png':
+      return Chri;
+    case 'dalia.png':
+      return Dalia;
+    case 'elena.png':
+      return Elena;
+    case 'fede.png':
+      return Fede;
+    case 'giulia.png':
+      return Giulia;
+    case 'lia.png':
+      return Lia;
+    case 'mery.png':
+      return Mery;
+    case 'mime.png':
+      return Mime;
+    case 'nick.png':
+      return Nick;
+    case 'nico_.png':
+      return Nico_;
+    case 'pietro.png':
+      return Pietro;
+    case 'polone.png':
+      return Polone;
+    case 'rita.png':
+      return Rita;
+    case 'tina.png':
+      return Tina;
+    case 'tracy.png':
+      return Tracy;
     default:
       return null
   }

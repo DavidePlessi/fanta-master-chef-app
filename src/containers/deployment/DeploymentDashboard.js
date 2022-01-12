@@ -52,10 +52,10 @@ const useStyle = makeStyles(theme => ({
 function getNextEpisodes(episodes) {
   const today = new Date();
   const todayTime = parseInt(moment().format('HHmm'))
-  const includeToday = todayTime <= 1330;
+  const includeToday = todayTime <= 2100;
 
   today.setHours(0, 0, 0, 0);
-  const episodesFromToday = _.filter(episodes, (episode) => {
+  let episodesFromToday = _.filter(episodes, (episode) => {
     const episodeDate = (new Date(episode.date));
     episodeDate.setHours(0, 0, 0, 0);
     return includeToday

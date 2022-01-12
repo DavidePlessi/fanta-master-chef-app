@@ -40,7 +40,7 @@ export const getEpisodeDeployment = (episodeNumber) => async dispatch => {
     payload: {}
   })
   try {
-    const currentEpisodeDeployment = await deploymentApi.getEpisodeDeployment(episodeNumber, 10);
+    const currentEpisodeDeployment = await deploymentApi.getEpisodeDeployment(episodeNumber, 11);
     dispatch({
       type: DEPLOYMENT_GET_CURRENT_EPISODE_DEPLOYMENT_RESOLVE,
       payload: {currentEpisodeDeployment}
@@ -76,7 +76,7 @@ export const createOrUpdateDeployment = (episodeNumber, participants, callback) 
   });
   try {
     const newDeployment = await deploymentApi
-      .createOrUpdateDeployment(10, episodeNumber, participants);
+      .createOrUpdateDeployment(11, episodeNumber, participants);
     dispatch({
       type: DEPLOYMENT_CREATE_OR_UPDATE_RESOLVE,
       payload: {newDeployment}
