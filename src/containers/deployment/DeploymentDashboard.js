@@ -71,7 +71,7 @@ function getCanModifyDeployment(selectedEpisodeNumber, episodes) {
 
   const today = new Date();
   const todayTime = parseInt(moment().format('HHmm'));
-  const includeToday = todayTime <= 1330;
+  const includeToday = todayTime <= 2100;
   const episodeDate = (new Date(selectedEpisode.date));
   episodeDate.setHours(0, 0, 0, 0);
   today.setHours(0, 0, 0, 0);
